@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey</title>
+
+	<meta charset="UTF-8">
+	<title>FriendFinder</title>
+
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+</head>
+<body>
+	<h1>Hi there! Fill out this form to find a friend</h1>
+
+	<h3>Questoin 1</h3>
+	<h4>Do you like dogs?</h4>
+	<form>
+		<label><input type="radio" name="ansewr" id="q1">Not at all</label>
+		<label><input type="radio" name="ansewr" id="q1">Not really</label>
+		<label><input type="radio" name="ansewr" id="q1">Neither</label>
+		<label><input type="radio" name="ansewr" id="q1">A little</label>
+		<label><input type="radio" name="ansewr" id="q1">Very much</label>
+	</form>
+
+	<h3>Questoin 2</h3>
+	<h4>Do you like Netflix?</h4>
+	<form>
+		<label><input type="radio" name="ansewr" id="q2">Not at all</label>
+		<label><input type="radio" name="ansewr" id="q2">Not really</label>
+		<label><input type="radio" name="ansewr" id="q2">Neither</label>
+		<label><input type="radio" name="ansewr" id="q2">A little</label>
+		<label><input type="radio" name="ansewr" id="q2">Very much</label>
+	</form>
+
+	<h3>Questoin 3</h3>
+	<h4>Do you like pizza</h4>
+	<form>
+		<label><input type="radio" name="ansewr" id="q3">Not at all</label>
+		<label><input type="radio" name="ansewr" id="q3">Not really</label>
+		<label><input type="radio" name="ansewr" id="q3">Neither</label>
+		<label><input type="radio" name="ansewr" id="q3">A little</label>
+		<label><input type="radio" name="ansewr" id="q3">Very much</label>
+	</form>
+
+	<h3>Questoin 4</h3>
+	<h4>Do you like music?</h4>
+	<form>
+		<label><input type="radio" name="ansewr" id="q4">Not at all</label>
+		<label><input type="radio" name="ansewr" id="q4">Not really</label>
+		<label><input type="radio" name="ansewr" id="q4">Neither</label>
+		<label><input type="radio" name="ansewr" id="q4">A little</label>
+		<label><input type="radio" name="ansewr" id="q4">Very much</label>
+	</form>
+
+	<h3>Questoin 5</h3>
+	<h4>Do you enjoy the great outdoors?</h4>
+	<form>
+		<label><input type="radio" name="ansewr" id="q5">Not at all</label>
+		<label><input type="radio" name="ansewr" id="q5">Not really</label>
+		<label><input type="radio" name="ansewr" id="q5">Neither</label>
+		<label><input type="radio" name="ansewr" id="q5">A little</label>
+		<label><input type="radio" name="ansewr" id="q5">Very much</label>
+	</form>
+
+	<script type="text/javascript">
+
+    // Capture the form inputs 
+    $("#submit").on("click", function(){
+
+    	// Form validation
+    	function validateForm() {
+		  var isValid = true;
+		  $('.form-control').each(function() {
+		    if ( $(this).val() === '' )
+		        isValid = false;
+		  });
+
+		  $('.question').each(function() {
+
+		  	if( $(this).val() === "")
+		  		isValid = false
+		  })
+		  return isValid;
+		}
+
+		// If all required fields are filled
+		if (validateForm() == true)
+		{
+			// Create an object for the user's data
+	    	var userData = {
+	    		name: $("#name").val(),
+	    		photo: $("#photo").val(),
+	    		scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val() ]
+	    	}
+
+
+	    	// Grab the URL of the website
+	    	var currentURL = window.location.origin;
+
+	    	// AJAX post the data to the friends API. 
+	    	$.post(currentURL + "/api/friends", userData, function(data){
+
+	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+	    		$("#matchName").text(data.name);
+	    		$('#matchImg').attr("src", data.photo);
+
+		    	// Show the modal with the best match 
+		    	$("#resultsModal").modal('toggle');
+
+	    	});
+		}
+		else
+		{
+			alert("Please fill out all fields before submitting!");
+		}
+    	
+    	return false;
+    });
+
+
+  </script>
+</body>
+</html>
+
