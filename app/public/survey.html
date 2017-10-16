@@ -20,114 +20,102 @@
 </head>
 <body>
 	<h1>Hi there! Fill out this form to find a friend</h1>
+	<form>
+	  Name (required)<br>
+	  <input type="text" name="name" id="name" value="Name">
+	  <br>
+	  Image URL (required)<br>
+	  <input type="text" name="photo" id="photo" value="url">
+	  <br><br>
+	
+	</form> 
 
 	<h3>Questoin 1</h3>
 	<h4>Do you like dogs?</h4>
 	<form>
-		<label><input type="radio" name="ansewr" id="q1">Not at all</label>
-		<label><input type="radio" name="ansewr" id="q1">Not really</label>
-		<label><input type="radio" name="ansewr" id="q1">Neither</label>
-		<label><input type="radio" name="ansewr" id="q1">A little</label>
-		<label><input type="radio" name="ansewr" id="q1">Very much</label>
+		<label><input type="radio" class="answer1" name="answer" value=1>Not at all</label>
+		<label><input type="radio" class="answer1" name="answer" value=2>Not really</label>
+		<label><input type="radio" class="answer1" name="answer" value=3>Neither</label>
+		<label><input type="radio" class="answer1" name="answer" value=4>A little</label>
+		<label><input type="radio" class="answer1" name="answer" value=5>Very much</label>
 	</form>
 
 	<h3>Questoin 2</h3>
 	<h4>Do you like Netflix?</h4>
 	<form>
-		<label><input type="radio" name="ansewr" id="q2">Not at all</label>
-		<label><input type="radio" name="ansewr" id="q2">Not really</label>
-		<label><input type="radio" name="ansewr" id="q2">Neither</label>
-		<label><input type="radio" name="ansewr" id="q2">A little</label>
-		<label><input type="radio" name="ansewr" id="q2">Very much</label>
+		<label><input type="radio" class="answer2" name="answer" value=1>Not at all</label>
+		<label><input type="radio" class="answer2" name="answer" value=2>Not really</label>
+		<label><input type="radio" class="answer2" name="answer" value=3>Neither</label>
+		<label><input type="radio" class="answer2" name="answer" value=4>A little</label>
+		<label><input type="radio" class="answer2" name="answer" value=5>Very much</label>
 	</form>
 
 	<h3>Questoin 3</h3>
 	<h4>Do you like pizza</h4>
 	<form>
-		<label><input type="radio" name="ansewr" id="q3">Not at all</label>
-		<label><input type="radio" name="ansewr" id="q3">Not really</label>
-		<label><input type="radio" name="ansewr" id="q3">Neither</label>
-		<label><input type="radio" name="ansewr" id="q3">A little</label>
-		<label><input type="radio" name="ansewr" id="q3">Very much</label>
+		<label><input type="radio" class="answer3" name="answer" value=1>Not at all</label>
+		<label><input type="radio" class="answer3" name="answer" value=2>Not really</label>
+		<label><input type="radio" class="answer3" name="answer" value=3>Neither</label>
+		<label><input type="radio" class="answer3" name="answer" value=4>A little</label>
+		<label><input type="radio" class="answer3" name="answer" value=5>Very much</label>
 	</form>
 
 	<h3>Questoin 4</h3>
 	<h4>Do you like music?</h4>
 	<form>
-		<label><input type="radio" name="ansewr" id="q4">Not at all</label>
-		<label><input type="radio" name="ansewr" id="q4">Not really</label>
-		<label><input type="radio" name="ansewr" id="q4">Neither</label>
-		<label><input type="radio" name="ansewr" id="q4">A little</label>
-		<label><input type="radio" name="ansewr" id="q4">Very much</label>
+		<label><input type="radio" class="answer4" name="answer" value=1>Not at all</label>
+		<label><input type="radio" class="answer4" name="answer" value=2>Not really</label>
+		<label><input type="radio" class="answer4" name="answer" value=3>Neither</label>
+		<label><input type="radio" class="answer4" name="answer" value=4>A little</label>
+		<label><input type="radio" class="answer4" name="answer" value=5>Very much</label>
 	</form>
 
 	<h3>Questoin 5</h3>
 	<h4>Do you enjoy the great outdoors?</h4>
 	<form>
-		<label><input type="radio" name="ansewr" id="q5">Not at all</label>
-		<label><input type="radio" name="ansewr" id="q5">Not really</label>
-		<label><input type="radio" name="ansewr" id="q5">Neither</label>
-		<label><input type="radio" name="ansewr" id="q5">A little</label>
-		<label><input type="radio" name="ansewr" id="q5">Very much</label>
+		<label><input type="radio" class="answer5" name="answer" value=1>Not at all</label>
+		<label><input type="radio" class="answer5" name="answer" value=2>Not really</label>
+		<label><input type="radio" class="answer5" name="answer" value=3>Neither</label>
+		<label><input type="radio" class="answer5" name="answer" value=4>A little</label>
+		<label><input type="radio" class="answer5" name="answer" value=5>Very much</label>
 	</form>
+
+	<button id="submit">Submit</button>
 
 	<script type="text/javascript">
 
     // Capture the form inputs 
-    $("#submit").on("click", function(){
+    $("#submit").on("click", function(event){
 
-    	// Form validation
-    	function validateForm() {
-		  var isValid = true;
-		  $('.form-control').each(function() {
-		    if ( $(this).val() === '' )
-		        isValid = false;
-		  });
+    	event.preventDefault();
 
-		  $('.question').each(function() {
+		var scoresArray = [$("input[class='answer1']:checked").val(), $("input[class='answer2']:checked").val(), $("input[class='answer3']:checked").val(), $("input[class='answer4']:checked").val(), $("input[class='answer5']:checked").val()]
 
-		  	if( $(this).val() === "")
-		  		isValid = false
-		  })
-		  return isValid;
-		}
-
-		// If all required fields are filled
-		if (validateForm() == true)
-		{
-			// Create an object for the user's data
 	    	var userData = {
-	    		name: $("#name").val(),
-	    		photo: $("#photo").val(),
-	    		scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val() ]
+	    		name: $("#name").val().trim(),
+	    		photo: $("#photo").val().trim(),
+	    		scores: scoresArray.map(Number)
 	    	}
+	    	 
+	    	$.post("/api/friends", userData, function(data){
 
-
-	    	// Grab the URL of the website
-	    	var currentURL = window.location.origin;
-
-	    	// AJAX post the data to the friends API. 
-	    	$.post(currentURL + "/api/friends", userData, function(data){
-
-	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 	    		$("#matchName").text(data.name);
-	    		$('#matchImg').attr("src", data.photo);
-
-		    	// Show the modal with the best match 
-		    	$("#resultsModal").modal('toggle');
+	    		$('#matchPhoto').attr("src", data.img);
+	    		$("#result").modal();
 
 	    	});
-		}
-		else
-		{
-			alert("Please fill out all fields before submitting!");
-		}
-    	
-    	return false;
+	    	console.log(userData)
+	    	
     });
-
-
   </script>
+
+  <div id="result" class="modal">
+	  	<div class="modal-content">
+		  	<p id="matchName"></p>
+		  	<img id="matchPhoto">
+		</div>
+  </div>
+ 
+  </style>
 </body>
 </html>
-
