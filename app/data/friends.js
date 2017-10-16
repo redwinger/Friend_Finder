@@ -1,28 +1,27 @@
 var friends = [
   {
-  name: "Betty",
-  scores: [1,4,3,5,2],
-  image: "https://pbs.twimg.com/profile_images/1125351141/BettyWhite1.jpg"
-  }, 
+  name: "Bob",
+  scores: [2,4,3,5,5],
+  image: "https://vignette3.wikia.nocookie.net/p__/images/2/20/Bob-Belcher-bobs-burgers-38510373-860-1440.jpg/revision/latest?cb=20160310203230&path-prefix=protagonist"  }, 
   {
-  name: "Brad",
-  scores: [5,5,3,1,1],
-  image: "http://www.oztennisacademy.com/wp-content/uploads/2014/02/brad_profile22.jpg"
+  name: "Rick",
+  scores: [1,1,1,1,1],
+  image: "http://vignette4.wikia.nocookie.net/rickandmorty/images/e/ef/Vlcsnap-2015-01-31-02h46m26s111.png/revision/latest?cb=20150131104650"
   },
   {
-  name: "Candice",
-  scores: [1,1,1,5,5],
-  image: "http://cdn-wpmsa.defymedia.com/wp-content/uploads/sites/3/2013/09/252941_180415822016588_171086099616227_486461_2431645_n.jpg"
+  name: "Homer",
+  scores: [4,3,5,5,1],
+  image: "http://battleroyalewithcheese.com/wp-content/uploads/2015/06/Homer_simpsonwoohooo.gif"
   }, 
   {
-  name: "Tina",
-  scores: [3,5,3,2,1],
-  image: "http://themepack.me/i/c/749x468/media/g/670/hot-girl-theme-bq17.jpg"
+  name: "Hank",
+  scores: [3,1,3,2,5],
+  image: "https://i.pinimg.com/236x/90/de/7c/90de7ca01997483eeb9f63d8acd952ce--picture-comments.jpg"
   }, 
   {
-  name: "Toothy Ted",
+  name: "Mr. Garrisson",
   scores: [5,5,5,5,5],
-  image: "https://c1.staticflickr.com/9/8158/7679178698_e37fd9a200_b.jpg"
+  image: "https://vignette.wikia.nocookie.net/southpark/images/f/f8/600px-Music_Cover.jpg/revision/latest/scale-to-width-down/180?cb=20071008015134"
   }
 ];
 
